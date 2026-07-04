@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're Invited — Nikku's 30th in Patagonia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Caveat:wght@600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#ede3d2;        /* warm cream page background, lots of white space */
+    --canvas:#f7dcc4;       /* soft warm accent, used sparingly */
+    --paper:#ffffff;
+    --ember:#e8873c;        /* orange — warm pop accent */
+    --ember-dark:#c96b23;
+    --navy:#211d1a;         /* near-black anchor, like the poster's bold type */
+    --navy-soft:#3b332c;
+    --teal:#3f7c5d;         /* green accent */
+    --lake:#3b78c3;         /* blue accent */
+    --pink:#d84f7f;         /* pink accent */
+    --sky:#e4edf7;          /* pale blue card tint */
+    --sky-deep:#bcd6ec;     /* deeper blue chip */
+    --gold:#f0c23d;         /* yellow accent */
+    --ink:#231f1c;
+    /* fun-title letter cycle — bold color-block palette */
+    --c0:#3b78c3;
+    --c1:#d9503c;
+    --c2:#e8873c;
+    --c3:#3f7c5d;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Nunito', sans-serif;
+    line-height:1.7;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{margin:0 0 .3em; font-weight:600;}
+  .script{font-family:'Caveat', cursive;}
+  a{color:var(--ember-dark);}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+
+  /* fun colorful bubble title (mirrors playful multicolor lettering) */
+  .fun-title{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    letter-spacing:.5px;
+  }
+  .fun-title .lc{display:inline-block;}
+  .fun-title .lc.c0{color:var(--c0);}
+  .fun-title .lc.c1{color:var(--c1);}
+  .fun-title .lc.c2{color:var(--c2);}
+  .fun-title .lc.c3{color:var(--c3);}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    min-height:80vh;
+    display:flex;
+    align-items:flex-end;
+    padding:0 0 70px;
+    overflow:hidden;
+    background:var(--navy);
+  }
+  .hero-bg{
+    position:absolute; inset:0;
+    background-image:url('https://cdn.prod.website-files.com/5bb2cb199758ce1535f85891/6643a49763dd6449b35a77ed_paulius-dragunas-14weKuGAe3I-unsplash-2%20copy.avif');
+    background-size:cover;
+    background-position:center 60%;
+  }
+  .hero-scrim{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(33,29,26,.18) 0%, rgba(33,29,26,.5) 55%, rgba(33,29,26,.93) 100%);
+  }
+  .breadcrumb{
+    position:relative; z-index:2;
+    display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+    padding:24px 28px 0;
+    font-size:.78rem;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.72);
+    font-weight:700;
+  }
+  .breadcrumb span.sep{opacity:.5;}
+  .hero-inner{
+    position:relative; z-index:2;
+    width:100%;
+    padding:0 28px;
+  }
+  .badge-seal{
+    position:relative;
+    width:76px; height:76px;
+    margin-bottom:18px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .badge-seal svg{position:absolute; inset:0; width:100%; height:100%;}
+  .badge-seal span{position:relative; z-index:2; font-family:'Baloo 2',sans-serif; font-weight:600; color:var(--navy); font-size:1.15rem;}
+  .invited{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:clamp(3.2rem, 13vw, 7.2rem);
+    line-height:.95;
+    letter-spacing:0;
+    margin:0;
+  }
+  .invited .lc{color:#fff;}
+  .invited .lc.c0{color:var(--lake);}
+  .invited .lc.c1{color:var(--gold);}
+  .invited .lc.c2{color:#fff;}
+  .invited .lc.c3{color:var(--lake);}
+  /* playful bounce reserved for the hero title only */
+  .invited.fun-title .lc:nth-child(odd){transform:translateY(-3px) rotate(-3deg);}
+  .invited.fun-title .lc:nth-child(even){transform:translateY(3px) rotate(3deg);}
+  .hero-sub{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:500;
+    font-size:clamp(1.15rem, 3vw, 1.5rem);
+    color:#fff;
+    margin-top:16px;
+    max-width:620px;
+  }
+  .hero-tags{
+    margin-top:24px;
+    display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .hero-tags .tag{
+    background:rgba(255,255,255,.14);
+    border:1.5px solid rgba(255,255,255,.4);
+    color:#fff;
+    font-weight:700;
+    font-size:.85rem;
+    padding:7px 16px;
+    border-radius:999px;
+    backdrop-filter:blur(2px);
+  }
+
+  /* wave divider */
+  .wave{display:block; width:100%; line-height:0; position:relative; z-index:2; margin-top:-6px;}
+  .wave svg{width:100%; height:56px; display:block;}
+
+  /* STICKY JUMP NAV */
+  .jumpnav{
+    position:sticky; top:0; z-index:50;
+    display:flex; justify-content:center; align-items:center; gap:10px;
+    flex-wrap:wrap;
+    background:rgba(253,250,244,.94);
+    backdrop-filter:blur(8px);
+    padding:14px 20px;
+    border-bottom:1px solid rgba(33,29,26,.09);
+  }
+  .jumpnav a{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    color:var(--navy);
+    text-decoration:none;
+    padding:4px 6px;
+  }
+  .jumpnav a:hover{color:var(--ember-dark);}
+  .jumpnav .dot{color:var(--ember); opacity:.6; font-weight:700;}
+
+  /* SECTIONS — generous whitespace */
+  section{padding:88px 0; position:relative;}
+  .card{
+    position:relative;
+    z-index:1;
+    background:var(--paper);
+    border-radius:32px;
+    box-shadow:0 2px 30px rgba(33,29,26,.07);
+    padding:52px 44px;
+  }
+  .section-title{
+    text-align:center;
+    font-size:clamp(2rem,5vw,2.7rem);
+    margin-bottom:.5em;
+  }
+  .section-kicker{
+    text-align:center;
+    color:var(--ember-dark);
+    font-weight:800;
+    font-size:.82rem;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+    display:block;
+  }
+
+  /* NOTE FROM NIKKI */
+  .note p{margin:0 0 18px; font-size:1.08rem;}
+  .signoff{font-family:'Caveat', cursive; font-size:2.1rem; color:var(--teal); margin-top:8px;}
+
+  /* GUESTS */
+  .guests{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(130px,1fr));
+    gap:20px;
+    margin-top:36px;
+  }
+  .guest{
+    text-align:center;
+    background:var(--sky);
+    border-radius:22px;
+    padding:22px 10px 18px;
+    font-weight:800;
+    color:var(--navy);
+  }
+  .guest:nth-child(3n+2){background:#f5dbe6;}
+  .guest:nth-child(3n+3){background:var(--canvas);}
+  .guest .avatar{
+    width:58px; height:58px;
+    margin:0 auto 12px;
+    border-radius:50%;
+    background:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem;
+    box-shadow:0 4px 0 rgba(33,29,26,.1);
+  }
+  .guest small{display:block; font-weight:600; color:var(--ink); opacity:.7; font-size:.78rem; margin-top:3px;}
+
+  .photo-note{
+    text-align:center;
+    margin-top:26px;
+    font-size:.95rem;
+    color:var(--teal);
+    font-weight:700;
+  }
+
+  /* PHOTO GALLERIES — masonry-style with caption overlays */
+  .real-gallery{
+    column-count:3;
+    column-gap:20px;
+    margin-top:32px;
+  }
+  @media (max-width:800px){.real-gallery{column-count:2;}}
+  @media (max-width:520px){.real-gallery{column-count:1;}}
+  .real-gallery figure{
+    margin:0 0 20px;
+    break-inside:avoid;
+    position:relative;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 24px rgba(33,29,26,.14);
+    background:var(--sky);
+  }
+  .real-gallery img{width:100%; display:block;}
+  .real-gallery figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:16px 16px 12px;
+    background:linear-gradient(180deg, rgba(33,29,26,0) 0%, rgba(33,29,26,.78) 100%);
+    color:#fff;
+    font-family:'Caveat', cursive;
+    font-size:1.3rem;
+  }
+
+  /* FAMILY CAROUSEL — 3 photos visible, arrow navigation */
+  .carousel{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:32px;
+  }
+  .car-btn{
+    flex:0 0 auto;
+    width:46px; height:46px;
+    border-radius:50%;
+    border:none;
+    background:var(--navy);
+    color:#fff;
+    font-size:1.4rem;
+    line-height:1;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 4px 0 rgba(33,29,26,.25);
+  }
+  .car-btn:hover{background:var(--ember);}
+  .car-btn:disabled{opacity:.35; cursor:default; background:var(--navy);}
+  .car-viewport{overflow:hidden; border-radius:20px; flex:1;}
+  .car-track{display:flex; transition:transform .4s ease;}
+  .car-slide{flex:0 0 calc(100% / 3); box-sizing:border-box; padding:0 8px;}
+  .car-slide img{
+    width:100%; aspect-ratio:4/5; object-fit:cover;
+    border-radius:16px; display:block;
+    box-shadow:0 10px 22px rgba(33,29,26,.14);
+  }
+  @media (max-width:900px){.car-slide{flex:0 0 50%;}}
+  @media (max-width:560px){.car-slide{flex:0 0 100%;}}
+
+  /* SNAPSHOT STATS */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+    gap:18px;
+    margin-top:34px;
+  }
+  .stat{
+    text-align:center;
+    color:#fff;
+    border-radius:20px;
+    padding:24px 10px;
+  }
+  .stat:nth-child(1){background:var(--teal);}
+  .stat:nth-child(2){background:var(--ember);}
+  .stat:nth-child(3){background:var(--sky-deep); color:var(--navy);}
+  .stat:nth-child(4){background:var(--navy);}
+  .stat .num{font-family:'Baloo 2',sans-serif; font-size:1.5rem; display:block; font-weight:600;}
+  .stat .lbl{font-size:.78rem; opacity:.9; text-transform:uppercase; letter-spacing:.5px; font-weight:700;}
+
+  /* ADD TO CALENDAR */
+  .cal-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    margin:28px auto 0;
+    background:var(--navy);
+    color:#fff;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    padding:13px 24px;
+    border-radius:999px;
+    text-decoration:none;
+    box-shadow:0 4px 0 rgba(33,29,26,.2);
+  }
+  .cal-btn:hover{background:var(--ember);}
+  .cal-btn.on-dark{background:var(--ember);}
+  .cal-btn.on-dark:hover{background:var(--gold); color:var(--navy);}
+  .cal-wrap{text-align:center;}
+  .cal-note{display:block; margin-top:10px; font-size:.85rem; color:var(--teal); font-weight:700;}
+  .rsvp .cal-note{color:var(--sky-deep);}
+
+  /* PACKAGE LINK — separate from .cal-btn so the calendar script doesn't touch it */
+  .pkg-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--lake);
+    color:#fff;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:.95rem;
+    padding:13px 24px;
+    border-radius:999px;
+    text-decoration:none;
+    box-shadow:0 4px 0 rgba(33,29,26,.2);
+  }
+  .pkg-btn:hover{background:var(--navy);}
+  .pkg-wrap{text-align:center; margin:22px 0 30px;}
+  .pkg-note{display:block; margin-top:10px; font-size:.85rem; color:var(--teal); font-weight:700;}
+
+  /* MAP & WEATHER */
+  .info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin-top:32px;
+  }
+  @media (max-width:700px){.info-grid{grid-template-columns:1fr;}}
+  .info-card{background:var(--sky); border-radius:22px; padding:16px; text-align:center;}
+  .info-card img{width:100%; border-radius:14px; display:block; box-shadow:0 8px 20px rgba(33,29,26,.12);}
+  .info-card .cap{margin-top:12px; font-weight:700; color:var(--navy); font-size:.92rem;}
+
+  /* FAQ */
+  .faq{
+    background:var(--sky);
+    border-radius:20px;
+    padding:6px 22px;
+    margin-bottom:16px;
+    border-left:8px solid var(--lake);
+  }
+  .faq:nth-child(2n){border-left-color:var(--ember);}
+  .faq:nth-child(3n){border-left-color:var(--teal);}
+  .faq summary{
+    cursor:pointer;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:600;
+    font-size:1.08rem;
+    color:var(--navy);
+    list-style:none;
+    padding:16px 0;
+  }
+  .faq summary::-webkit-details-marker{display:none;}
+  .faq summary::before{content:"❓  ";}
+  .faq-body{padding:0 0 20px; font-size:.97rem;}
+  .faq-body ul{margin:10px 0 0; padding-left:20px;}
+  .faq-body li{margin-bottom:6px;}
+
+  /* ITINERARY */
+  .day{
+    background:var(--sky);
+    border-radius:20px;
+    padding:6px 22px;
+    margin-bottom:16px;
+    border-left:8px solid var(--teal);
+  }
+  .day:nth-child(2n){border-left-color:var(--ember);}
+  .day:nth-child(3n){border-left-color:var(--lake);}
+  .day:nth-child(4n){border-left-color:var(--gold);}
+  .day summary{
+    cursor:pointer;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:600;
+    font-size:1.12rem;
+    color:var(--navy);
+    list-style:none;
+    padding:16px 0;
+  }
+  .day summary::-webkit-details-marker{display:none;}
+  .day summary::before{content:"🥾  ";}
+  .day-body{padding:0 0 22px; font-size:.98rem;}
+  .day-meta{
+    display:flex; flex-wrap:wrap; gap:8px;
+    margin-top:14px;
+  }
+  .pill{
+    background:#fff;
+    color:var(--navy);
+    border-radius:999px;
+    padding:5px 14px;
+    font-size:.78rem;
+    font-weight:800;
+  }
+
+  /* COST */
+  .price-tag{
+    text-align:center;
+    background:var(--ember);
+    color:#fff;
+    border-radius:24px;
+    padding:30px 20px;
+    margin:26px 0 34px;
+  }
+  .price-tag .amount{font-family:'Baloo 2',sans-serif; font-size:2.8rem; display:block; font-weight:600;}
+  .price-tag .per{font-size:.95rem; opacity:.92; font-weight:700;}
+  .cost-cols{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:10px;}
+  @media (max-width:560px){.cost-cols{grid-template-columns:1fr;}}
+  .cost-cols > div{background:var(--sky); border-radius:18px; padding:20px 22px;}
+  .cost-cols h4{margin:0 0 12px; color:var(--navy); font-family:'Baloo 2',sans-serif; font-weight:600;}
+  .cost-cols ul{margin:0; padding-left:20px;}
+  .cost-cols li{margin-bottom:9px; font-size:.96rem;}
+  .honest-note{
+    margin-top:26px;
+    background:var(--canvas);
+    padding:18px 22px;
+    border-radius:18px;
+    font-size:.98rem;
+  }
+
+  /* RSVP */
+  .rsvp-section{background:var(--navy); padding:90px 0;}
+  .rsvp{
+    text-align:center;
+    color:#fff;
+    max-width:600px;
+    margin:0 auto;
+  }
+  .rsvp .section-kicker{color:var(--gold);}
+  .rsvp h2{color:#fff;}
+  .rsvp .deadline{
+    display:inline-block;
+    margin-top:20px;
+    background:var(--ember);
+    color:#fff;
+    font-weight:800;
+    padding:13px 28px;
+    border-radius:999px;
+    font-size:1.05rem;
+  }
+  .rsvp p{opacity:.92; font-size:1.05rem;}
+
+  footer{
+    text-align:center;
+    padding:46px 20px 60px;
+    font-size:.9rem;
+    color:var(--navy);
+    opacity:.65;
+    background:var(--cream);
+  }
+  footer a{color:var(--navy); font-weight:700;}
+
+  @media (max-width:600px){
+    .card{padding:34px 26px; border-radius:26px;}
+    section{padding:60px 0;}
+    .hero{min-height:66vh;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="breadcrumb">
+    <span>South America</span><span class="sep">›</span><span>Chile</span><span class="sep">›</span><span>Patagonia</span><span class="sep">›</span><span>Nov 2026</span>
+  </div>
+  <div class="hero-inner">
+    <div class="badge-seal">
+      <svg viewBox="0 0 100 100"><path fill="#f0c23d" d="M50 2 L58 12 L70 5 L73 18 L87 15 L84 29 L98 31 L90 43 L100 52 L88 60 L94 73 L80 74 L79 88 L66 84 L61 97 L50 87 L39 97 L34 84 L21 88 L20 74 L6 73 L12 60 L0 52 L10 43 L2 31 L16 29 L13 15 L27 18 L30 5 L42 12 Z"/></svg>
+      <span>30</span>
+    </div>
+    <h1 class="invited fun-title" data-fun>You're Invited</h1>
+    <div class="hero-sub">a once-in-a-lifetime trip to celebrate Nikku's 30th in the mountains of Patagonia 🏔️</div>
+    <div class="hero-tags">
+      <span class="tag">🥾 The W Trek</span>
+      <span class="tag">📅 5 Days</span>
+      <span class="tag">🗓️ Nov 21–28, 2026</span>
+    </div>
+  </div>
+</div>
+<div class="wave">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,32 C300,70 900,-10 1200,30 L1200,60 L0,60 Z" fill="#ede3d2"></path></svg>
+</div>
+
+<nav class="jumpnav">
+  <a href="#route">Route</a><span class="dot">·</span><a href="#cost">Cost</a><span class="dot">·</span><a href="#faq">FAQ</a><span class="dot">·</span><a href="#rsvp">RSVP</a>
+</nav>
+
+<div class="wrap">
+
+  <!-- NOTE FROM NIKKI -->
+  <section>
+    <div class="card note">
+      <span class="section-kicker">a little note</span>
+      <h2 class="section-title fun-title" data-fun>From Nikku, With Love</h2>
+      <p>Hi everyone! I'm turning 30 this year, and there is genuinely nowhere I'd rather be than out on a trail with the people I love most. So here's the dream: five days hiking the W Trek through Torres del Paine — glaciers calving into impossibly turquoise lakes, granite towers piercing the sky, big open Patagonian light, and hopefully very little cell service. This is the kind of once-in-a-lifetime scenery you spend years chasing in photos online, and I want us to stand in front of it together.</p>
+      <p>I know this is a big ask. It's far, it's not cheap, and I'm sorry this invite is coming together later than I'd like — I've been trying to nail down the details before I brought it to you. My hope is that with it landing around Thanksgiving, more of us can actually get the time off together.</p>
+      <p>I'd plan every detail — you'd just need to show up with your boots on. And I want to be really clear: <strong>this is completely optional.</strong> No guilt, no pressure, no hurt feelings if this isn't the year for it. But I love you all, I love the outdoors, and I honestly can't think of a better way to spend turning 30 than watching the sun rise over the Towers with this exact group of people. Trips like this don't come around twice — and I am so, so excited at the thought of making these memories with this family.</p>
+      <div class="signoff">— Nikku 🥾</div>
+    </div>
+  </section>
+
+  <!-- WHO'S INVITED -->
+  <section>
+    <div class="card">
+      <span class="section-kicker">the crew</span>
+      <h2 class="section-title fun-title" data-fun>Who's Invited</h2>
+      <div class="guests">
+        <div class="guest"><span class="avatar">🎂</span>Nikku<small>that's me!</small></div>
+        <div class="guest"><span class="avatar">🧗</span>Alaap<small></small></div>
+        <div class="guest"><span class="avatar">🏕️</span>Nipun<small></small></div>
+        <div class="guest"><span class="avatar">🌻</span>Avni<small></small></div>
+        <div class="guest"><span class="avatar">⛰️</span>Dad<small></small></div>
+        <div class="guest"><span class="avatar">🌄</span>Upender Mousa<small></small></div>
+        <div class="guest"><span class="avatar">🌲</span>Pranjal<small></small></div>
+        <div class="guest"><span class="avatar">🧭</span>Jalaj<small></small></div>
+      </div>
+
+      <div class="honest-note" style="margin-top:30px;">
+        And to my two favorite non-hikers, <strong>Mummy</strong> and <strong>Reena Masi</strong> 💛 — I know a week on the trail is nowhere near your idea of a good time, and honestly, that's part of why I love you both. So consider this your save-the-date for something separate and just as special: a girls' celebration weekend made just for us, zero hiking boots required. You're just as much a part of turning 30 as anyone standing at the base of those towers.
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT ACTUALLY LOOKS LIKE -->
+  <section>
+    <div class="card">
+      <span class="section-kicker">the real deal</span>
+      <h2 class="section-title fun-title" data-fun>What It Actually Looks Like</h2>
+      <p style="text-align:center; max-width:560px; margin:8px auto 0;">Real photos from the W Trek route via FlashpackerConnect — glaciers, granite towers, and the refugios we'd actually sleep in. Views like this are exactly why I can't stop thinking about this trip.</p>
+      <div class="real-gallery">
+        <figure><img src="https://cdn.prod.website-files.com/5bb2cb199758ce1535f85891/5c2a5d8e131f021ea276ae69_42456565145_632558da09_k%20(1)%20copy.jpg" alt="Grey Glacier, Torres del Paine" loading="lazy"><figcaption>Grey Glacier</figcaption></figure>
+        <figure><img src="https://cdn.prod.website-files.com/5bb2cb199758ce1535f85891/5c4861fb71e5c92c1ceb20b1_Wildlife-Safari-Adventure%2C-Chile6.jpg" alt="Wildlife along the trail" loading="lazy"><figcaption>Wildlife en route</figcaption></figure>
+        <figure><img src="https://cdn.prod.website-files.com/5bb2cb199758ce1535f85891/6793c2e0e7fe4f26018323bb_673796e37aa2457ab545b92a_66fb159d27c0a5fec707d33f_66a432e47c8fa9b99ba73192_5c4861b8079e2aacc65305ff_15416443703_e1a8dfd3a8_k.webp" alt="Along the W Trek route" loading="lazy"><figcaption>Refugio country</figcaption></figure>
+        <figure><img src="https://cdn.prod.website-files.com/5bb2cb199758ce1535f85891/6793c2e1e7fe4f26018323c2_673796e37aa2457ab545b93d_66fb159d27c0a5fec707d337_66a432e47c8fa9b99ba7318a_5c4867737c042e2d9d9060d2_18353975195_6e573310b2_k.webp" alt="Torres del Paine scenery" loading="lazy"><figcaption>Somewhere along the way</figcaption></figure>
+        <figure><img src="https://cdn.prod.website-files.com/5bb2cb199758ce1535f85891/6793c2e1e7fe4f260183240d_6717097a64483dc24b80df9f_6708122af31d01353f780594_66fb159d27c0a5fec707d320_66a407ab7b55bb93eebd4b9b_5c2a5e81131f0241c876ae72_16457646333_f4e99e516d_k.webp" alt="Hanging bridges and valley views" loading="lazy"><figcaption>French Valley</figcaption></figure>
+        <figure><img src="https://cdn.prod.website-files.com/5bb2cb199758ce1535f85891/6793c2e0e7fe4f26018323aa_673796e37aa2457ab545b946_66fb159d27c0a5fec707d30b_66a407ab7b55bb93eebd4bbc_5c2a5e70b482f91bfc69fa67_16495186256_0bda4c94e2_k.webp" alt="Los Cuernos peaks" loading="lazy"><figcaption>Los Cuernos</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRIP SNAPSHOT -->
+  <section>
+    <div class="card">
+      <span class="section-kicker">the plan</span>
+      <h2 class="section-title fun-title" data-fun>Trip Snapshot</h2>
+      <p style="text-align:center; max-width:560px; margin:0 auto;">A self-guided 5-day version of the classic W Trek — we hike independently on well-marked trails, and the logistics (transport, permits, meals, lodging) are all handled. Tentative travel window is <strong>November 21–28, 2026</strong>, with the actual trek running <strong>November 23–27</strong>, right around Nikku's birthday and Thanksgiving week.</p>
+      <div class="stats">
+        <div class="stat"><span class="num">5 Days</span><span class="lbl">Duration</span></div>
+        <div class="stat"><span class="num">75.5 km</span><span class="lbl">~47 miles total</span></div>
+        <div class="stat"><span class="num">Moderate</span><span class="lbl">Difficulty</span></div>
+        <div class="stat"><span class="num">Refugio</span><span class="lbl">Bunks + meals</span></div>
+      </div>
+      <div class="cal-wrap">
+        <a class="cal-btn" href="#" download="Nikkus-30th-Patagonia-Trip.ics">📅 Add to Calendar</a>
+        <span class="cal-note">Blocks Nov 21–28 — hike itself is Nov 23–27</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP & WEATHER -->
+  <section>
+    <div class="card">
+      <span class="section-kicker">good to know</span>
+      <h2 class="section-title fun-title" data-fun>Map &amp; Weather</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <img src="w-trek-map.png" alt="W Trek and O Trek trail map of Torres del Paine">
+          <div class="cap">W Trek route map — Torres del Paine</div>
+        </div>
+        <a class="info-card" href="https://www.flashpackerconnect.com/trips/w-trek---self-guided-5-days-west-to-east" target="_blank" rel="noopener" style="text-decoration:none; display:block;">
+          <div style="background:#fff; border-radius:14px; padding:40px 16px; font-size:2.4rem;">🌤️</div>
+          <div class="cap">View weather &amp; seasons chart ↗</div>
+        </a>
+      </div>
+      <p style="text-align:center; max-width:560px; margin:14px auto 0; font-size:.85rem; color:var(--teal);">Weather chart opens the trip page, where it's shown further down.</p>
+    </div>
+  </section>
+
+  <!-- ITINERARY -->
+  <section id="route">
+    <div class="card">
+      <span class="section-kicker">day by day</span>
+      <h2 class="section-title fun-title" data-fun>The Route</h2>
+      <details class="day" open>
+        <summary>Day 1 — Paine Grande → Grey</summary>
+        <div class="day-body">
+          Bus + catamaran into the park, then hike through a winding valley toward Grey Lake, ending face-to-face with Grey Glacier.
+          <div class="day-meta"><span class="pill">11 km</span><span class="pill">~4.5 hrs</span><span class="pill">Refugio Grey</span></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>Day 2 — Grey → Paine Grande</summary>
+        <div class="day-body">
+          Optional morning add-on to the glacier viewpoint & hanging bridges, then retrace the trail back to Paine Grande.
+          <div class="day-meta"><span class="pill">11 km</span><span class="pill">~4.5 hrs</span><span class="pill">Refugio Paine Grande</span></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>Day 3 — Paine Grande → French Valley</summary>
+        <div class="day-body">
+          Skirting Skottsberg Lake into the heart of the park, then up into French Valley for views of Los Cuernos and hanging glaciers.
+          <div class="day-meta"><span class="pill">17–19 km</span><span class="pill">6–8 hrs</span><span class="pill">Los Cuernos / Francés</span></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>Day 4 — Los Cuernos/Francés → Torres Central</summary>
+        <div class="day-body">
+          Crystalline streams, hanging glaciers off Almirante Nieto, maybe a condor or two overhead, following Nordenskjöld Lake to camp.
+          <div class="day-meta"><span class="pill">12–15 km</span><span class="pill">4–5 hrs</span><span class="pill">Refugio Torre Central</span></div>
+        </div>
+      </details>
+      <details class="day">
+        <summary>Day 5 — Base of the Towers → Puerto Natales</summary>
+        <div class="day-body">
+          The big one: up through Ascencio Valley to the iconic Base of the Towers lookout, then back down and out of the park by bus.
+          <div class="day-meta"><span class="pill">22 km</span><span class="pill">8–10 hrs</span><span class="pill">Return to town ~9:30pm</span></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="card">
+      <span class="section-kicker">questions?</span>
+      <h2 class="section-title fun-title" data-fun>Trip FAQ</h2>
+      <details class="faq" open>
+        <summary>How difficult is it, and do I need prior experience?</summary>
+        <div class="faq-body">
+          A moderate fitness level is recommended. Daily hikes range roughly 11–22 km (4–10 hours), with terrain and weather affecting difficulty.
+          <ul>
+            <li><strong>Day 1</strong> (Base of the Towers): 22 km, 8–10 hrs, strenuous</li>
+            <li><strong>Day 2:</strong> 12 km, 4–5 hrs, moderate</li>
+            <li><strong>Day 3</strong> (French Valley): 17 km, 6–7 hrs, demanding</li>
+            <li><strong>Day 4</strong> (to Grey): 11 km, 4–4.5 hrs, moderate (+3–4 hrs optional suspension bridges)</li>
+            <li><strong>Day 5:</strong> 11 km, 4–4.5 hrs back to Paine Grande (or do the bridges in the morning, then return later)</li>
+          </ul>
+          The program isn't suitable for children under 10. Patagonia weather changes quickly — pack layers and wind protection.
+        </div>
+      </details>
+      <details class="faq">
+        <summary>What does "self-guided" mean, and who is it best for?</summary>
+        <div class="faq-body">
+          You hike independently on well-marked trails while the outfitter handles the logistics — transportation, permits, catamaran tickets, meals, and refugio or camping reservations. You'll receive maps and a pre-trip briefing in Puerto Natales, and you'll likely meet many other trekkers along the way. It's ideal for travelers who want flexible pacing, social hut-to-hut overnights, and comprehensive support without a guide.
+        </div>
+      </details>
+      <details class="faq">
+        <summary>Do I need to carry my own gear?</summary>
+        <div class="faq-body">
+          Yes — on the self-guided 5-day W Trek you'll carry your personal items for the day (water, clothing, snacks, camera, etc.). A porter option is available if you'd rather hike with just a daypack. Here's a solid <a href="https://www.flashpackerconnect.com/blog/a-guide-to-packing-for-the-w-trek-in-patagonia-expert-tips-and-essentials" target="_blank" rel="noopener">packing list guide</a> to start from.
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- COST -->
+  <section id="cost">
+    <div class="card">
+      <span class="section-kicker">let's talk numbers</span>
+      <h2 class="section-title fun-title" data-fun>Cost, Transparently</h2>
+      <div class="pkg-wrap">
+        <a class="pkg-btn" href="https://www.flashpackerconnect.com/trips/w-trek---self-guided-5-days-west-to-east" target="_blank" rel="noopener">🔗 View the Full Trip Package</a>
+        <span class="pkg-note">This is the exact package via FlashpackerConnect — itinerary, inclusions, and booking</span>
+      </div>
+      <div class="price-tag">
+        <span class="amount">$1,825 USD</span>
+        <span class="per">per person, starting at (refugio package)</span>
+      </div>
+      <div class="cost-cols">
+        <div>
+          <h4>✅ Included</h4>
+          <ul>
+            <li>Refugio lodging (shared bunk dorms, bedding provided)</li>
+            <li>All meals — breakfast, box lunch, dinner</li>
+            <li>Bus + catamaran transport in/out of the park</li>
+            <li>Park entrance & shuttle tickets</li>
+          </ul>
+        </div>
+        <div>
+          <h4>❌ Not Included</h4>
+          <ul>
+            <li>Flights to Chile (Puerto Natales / Punta Arenas)</li>
+            <li>Travel insurance</li>
+            <li>Porter service, if you want one (extra cost)</li>
+            <li>Hotel night in Puerto Natales before/after trek</li>
+          </ul>
+        </div>
+      </div>
+      <div class="honest-note">
+        I know $1,825/person plus flights is a real number, especially on top of holiday travel. I wanted to put it out there upfront so everyone can decide for themselves if this is the year — no explanation needed either way. Full itinerary is from <a href="https://www.flashpackerconnect.com/trips/w-trek---self-guided-5-days-west-to-east" target="_blank" rel="noopener">FlashpackerConnect</a>, who I'd book through and handle all the logistics for the whole group. Want the nitty-gritty? Here's the <a href="https://drive.google.com/file/d/1KltV803B9stoQCofqhvwTbmLzlN-Z975/view?usp=share_link" target="_blank" rel="noopener">full trip PDF</a>. Once I have a headcount, I'll send along the booking details and any deposit info — no need to figure that part out yourselves.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAMILY GALLERY -->
+  <section>
+    <div class="card">
+      <span class="section-kicker">our trail history</span>
+      <h2 class="section-title fun-title" data-fun>Us, Out There</h2>
+      <p style="text-align:center; max-width:560px; margin:8px auto 0;">A few of our hikes together so far — and a small preview of the memories I can't wait to make with all of you in Patagonia 📸</p>
+      <div class="carousel">
+        <button class="car-btn car-prev" aria-label="Previous photos">&#8249;</button>
+        <div class="car-viewport">
+          <div class="car-track">
+            <div class="car-slide"><img src="me.jpg" alt="Nikku on a hike" loading="lazy"></div>
+            <div class="car-slide"><img src="alaap 4.jpg" alt="Alaap on a hike" loading="lazy"></div>
+            <div class="car-slide"><img src="dad hike 2.jpg" alt="Dad on a hike" loading="lazy"></div>
+            <div class="car-slide"><img src="mousa 2.jpg" alt="Upender Mousa on a hike" loading="lazy"></div>
+            <div class="car-slide"><img src="nipun 3.jpg" alt="Nipun on a hike" loading="lazy"></div>
+            <div class="car-slide"><img src="avni & nipun.jpg" alt="Avni and Nipun on a hike" loading="lazy"></div>
+            <div class="car-slide"><img src="nipun & dad.jpg" alt="Nipun and Dad on a hike" loading="lazy"></div>
+            <div class="car-slide"><img src="vermont.jpg" alt="Hiking in Vermont" loading="lazy"></div>
+            <div class="car-slide"><img src="joshua tree.jpg" alt="Hiking in Joshua Tree" loading="lazy"></div>
+            <div class="car-slide"><img src="backpacking.jpg" alt="Backpacking gear ready to go" loading="lazy"></div>
+          </div>
+        </div>
+        <button class="car-btn car-next" aria-label="Next photos">&#8250;</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- RSVP -->
+<div class="wave" style="margin-top:0;">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,30 C300,-10 900,70 1200,32 L1200,0 L0,0 Z" fill="#211d1a"></path></svg>
+</div>
+<div class="rsvp-section" id="rsvp">
+  <div class="rsvp">
+    <span class="section-kicker">last thing</span>
+    <h2 class="fun-title" data-fun>Let Me Know?</h2>
+    <p>Just reply <strong>yes or no</strong> in our group chat — that's it, no forms, no fine print. I'd love to lock in dates soon, but truly: this is optional, and I'm just as happy to celebrate with whoever can make it work.</p>
+    <div class="deadline">Reply by July 31, 2026</div>
+    <div class="cal-wrap" style="margin-top:18px;">
+      <a class="cal-btn on-dark" href="#" download="Nikkus-30th-Patagonia-Trip.ics">📅 Add to Calendar</a>
+      <span class="cal-note">Blocks Nov 21–28 — hike itself is Nov 23–27</span>
+    </div>
+  </div>
+</div>
+<div class="wave">
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0,32 C300,70 900,-10 1200,30 L1200,60 L0,60 Z" fill="#ede3d2"></path></svg>
+</div>
+
+<footer>
+  🏔️ Made with love (and a little bit of trail dust) by Nikku, for the people I'd want next to me on a mountain. 🏔️
+</footer>
+
+<script>
+  // Turn each .fun-title element's text into playful multicolor letters
+  document.querySelectorAll('[data-fun]').forEach(function(el){
+    var text = el.textContent;
+    var out = '';
+    var idx = 0;
+    for (var i = 0; i < text.length; i++){
+      var ch = text[i];
+      if (ch === ' '){ out += ' '; continue; }
+      var cls = 'c' + (idx % 4);
+      out += '<span class="lc ' + cls + '">' + ch + '</span>';
+      idx++;
+    }
+    el.innerHTML = out;
+  });
+
+  // Family photo carousel — 3 visible, arrows step one at a time
+  (function(){
+    var track = document.querySelector('.car-track');
+    if (!track) return;
+    var slides = track.children;
+    var prevBtn = document.querySelector('.car-prev');
+    var nextBtn = document.querySelector('.car-next');
+    var index = 0;
+
+    function visibleCount(){
+      var w = window.innerWidth;
+      if (w <= 560) return 1;
+      if (w <= 900) return 2;
+      return 3;
+    }
+    function update(){
+      var visible = visibleCount();
+      var maxIndex = Math.max(0, slides.length - visible);
+      if (index > maxIndex) index = maxIndex;
+      if (index < 0) index = 0;
+      var pct = (100 / visible) * index;
+      track.style.transform = 'translateX(-' + pct + '%)';
+      prevBtn.disabled = index <= 0;
+      nextBtn.disabled = index >= maxIndex;
+    }
+    prevBtn.addEventListener('click', function(){ index -= 1; update(); });
+    nextBtn.addEventListener('click', function(){ index += 1; update(); });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  // Add-to-Calendar — builds a downloadable .ics for the tentative trip week
+  (function(){
+    var lines = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'PRODID:-//Nikku 30th Patagonia Trip//EN',
+      'CALSCALE:GREGORIAN',
+      'BEGIN:VEVENT',
+      'UID:nikku-30th-patagonia-2026@invite',
+      'DTSTAMP:20260703T000000Z',
+      'DTSTART;VALUE=DATE:20261121',
+      'DTEND;VALUE=DATE:20261129',
+      "SUMMARY:Nikku's 30th – Patagonia W Trek (hold the week!)",
+      'DESCRIPTION:Tentative travel window Nov 21-28\\, 2026. Actual W Trek hiking dates Nov 23-27. Torres del Paine National Park\\, Chile. RSVP by July 31 in the group chat.',
+      'LOCATION:Torres del Paine National Park\\, Chile',
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ];
+    var ics = lines.join('\r\n');
+    var href = 'data:text/calendar;charset=utf8,' + encodeURIComponent(ics);
+    document.querySelectorAll('.cal-btn').forEach(function(btn){
+      btn.setAttribute('href', href);
+    });
+  })();
+</script>
+
+</body>
+</html>
